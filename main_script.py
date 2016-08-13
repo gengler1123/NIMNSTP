@@ -11,6 +11,8 @@ import NetworkGeneration as NG
 import NeuronParameters as NP
 from random import random
 from Structure.NetworkStimulation import NetworkStimulation
+import numpy as np
+
 
 NetGen = NG.NetworkGeneration()
 
@@ -79,7 +81,7 @@ for i in Net.nodes():
 print(maxDelay)
 
 
-for RUN in range(10):
+for RUN in range(2):
     input_neurons = NetworkStimulation(Net, random()*xmax, random()*ymax, .4)
     I_clamp=300
               
@@ -94,3 +96,23 @@ for RUN in range(10):
     
     Net.print_Firings()
     X.append(Net.Firings)
+
+PSPF = []
+
+tau = 5
+
+for I in X:
+    PSPF.append([])
+    for n in Net.nodes():
+        PSPF[-1].append(np.zeros(T))
+    for i,x in enumerate(I):
+        if i != 0:
+            t = int(x[0])
+            n = int(x[1])
+            for m in Net.successors(n):
+                w = Net[n][m]['weight']
+                d = Net[n][m]['delay']
+                if t + d < T:
+                    for z in range(20):
+                        if t + d + z < T:
+                            PSPF[-1][t+d+z] += w * np.exp(-z/tau)
