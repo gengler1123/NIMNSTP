@@ -12,7 +12,7 @@ import NeuronParameters as NP
 from random import random
 from Structure.NetworkStimulation import NetworkStimulation
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 NetGen = NG.NetworkGeneration()
 
@@ -80,8 +80,9 @@ for i in Net.nodes():
 
 print(maxDelay)
 
+RUNS = 6
 
-for RUN in range(2):
+for RUN in range(RUNS):
     input_neurons = NetworkStimulation(Net, random()*xmax, random()*ymax, .4)
     I_clamp=300
               
@@ -96,8 +97,11 @@ for RUN in range(2):
     
     Net.print_Firings()
     X.append(Net.Firings)
+    Net.Firings=np.array([[0,0,None,None]])
+    Net.t = 0
 
 PSPF = []
+PM = []
 
 tau = 5
 
@@ -115,4 +119,35 @@ for I in X:
                 if t + d < T:
                     for z in range(20):
                         if t + d + z < T:
-                            PSPF[-1][t+d+z] += w * np.exp(-z/tau)
+                            PSPF[-1][m][t+d+z] += w * np.exp(-z/tau)/w_inhibmax
+
+DATA = {}
+DISTANCE = {}
+
+for R1 in range(RUNS):
+    for R2 in range(RUNS):
+        if R2 > R1:
+            PM = []
+            for n in Net.nodes():
+                PM.append((PSPF[R1][n] - PSPF[R2][n])**2)
+                pass
+            try:
+                DATA[R1][R2] = PM
+                DISTANCE[R1][R2] = 0
+                VALUE = 0
+                for N in PM:
+                    VALUE += sum(N)
+                DISTANCE[R1][R2] = np.sqrt(VALUE)
+                
+            except:
+                DATA[R1] = {}
+                DATA[R1][R2] = PM
+                DISTANCE[R1] = {}
+                DISTANCE[R1][R2] = 0
+                VALUE = 0
+                for N in PM:
+                    VALUE += sum(N)
+                DISTANCE[R1][R2] = np.sqrt(VALUE)
+            pass
+
+
