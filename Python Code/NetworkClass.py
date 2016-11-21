@@ -31,7 +31,7 @@ class Network(nx.DiGraph):
                     self[n][m]['delay']
                     )                 
         self.t+=1
-        print(len(currentfire))
+        
         
     def print_Firings(self):
         plt.figure()
