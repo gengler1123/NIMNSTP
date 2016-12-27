@@ -1,0 +1,19 @@
+﻿  Compiling CUDA source file kernel.cu...
+  
+  C:\Users\Gary\Documents\GitHub\NIMNSTP-CUDA\1000NeuronNetwork\1000NeuronNetwork>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include"  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd " -o Debug\kernel.cu.obj "C:\Users\Gary\Documents\GitHub\NIMNSTP-CUDA\1000NeuronNetwork\1000NeuronNetwork\kernel.cu" 
+  kernel.cu
+C:/Users/Gary/Documents/GitHub/NIMNSTP-CUDA/1000NeuronNetwork/1000NeuronNetwork/kernel.cu(54): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+C:/Users/Gary/Documents/GitHub/NIMNSTP-CUDA/1000NeuronNetwork/1000NeuronNetwork/kernel.cu(119): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+C:/Users/Gary/Documents/GitHub/NIMNSTP-CUDA/1000NeuronNetwork/1000NeuronNetwork/kernel.cu(137): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+C:/Users/Gary/Documents/GitHub/NIMNSTP-CUDA/1000NeuronNetwork/1000NeuronNetwork/kernel.cu(149): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+C:/Users/Gary/Documents/GitHub/NIMNSTP-CUDA/1000NeuronNetwork/1000NeuronNetwork/kernel.cu(188): warning C4244: 'initializing' : conversion from 'const int' to 'float', possible loss of data
+C:/Users/Gary/Documents/GitHub/NIMNSTP-CUDA/1000NeuronNetwork/1000NeuronNetwork/kernel.cu(220): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+C:/Users/Gary/Documents/GitHub/NIMNSTP-CUDA/1000NeuronNetwork/1000NeuronNetwork/kernel.cu(221): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+C:/Users/Gary/Documents/GitHub/NIMNSTP-CUDA/1000NeuronNetwork/1000NeuronNetwork/kernel.cu(258): warning C4018: '<' : signed/unsigned mismatch
+C:/Users/Gary/Documents/GitHub/NIMNSTP-CUDA/1000NeuronNetwork/1000NeuronNetwork/kernel.cu(354): warning C4018: '<' : signed/unsigned mismatch
+C:/Users/Gary/Documents/GitHub/NIMNSTP-CUDA/1000NeuronNetwork/1000NeuronNetwork/kernel.cu(367): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+  1000NeuronNetwork.vcxproj -> C:\Users\Gary\Documents\GitHub\NIMNSTP-CUDA\1000NeuronNetwork\Debug\1000NeuronNetwork.exe
+  copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\cudart*.dll" "C:\Users\Gary\Documents\GitHub\NIMNSTP-CUDA\1000NeuronNetwork\Debug\"
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\cudart32_75.dll
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\cudart64_75.dll
+          2 file(s) copied.
